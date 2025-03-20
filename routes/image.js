@@ -12,7 +12,8 @@ const router = express.Router();
 router.get('/getImageByName/:imageName', async (req, res) => {
   try {
     const image = await Image.findOne({ name: req.params.imageName });
-
+    console.log(image);
+    
     if (!image) {
       return res.status(404).json({ message: 'Image not found' });
     }

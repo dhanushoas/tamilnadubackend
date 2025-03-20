@@ -6,6 +6,9 @@ const app = express();
 const dotenv = require("dotenv");
 
 dotenv.config();
+// Use middleware
+app.use(bodyParser.json());
+app.use(cors());
 
 // Use environment variables for sensitive information
 const PORT = process.env.PORT || 3000;
@@ -20,9 +23,7 @@ const bookRoutes = require("./routes/book");
 const selectedPlaceRoutes = require("./routes/selectedPlace");
 const paymentRoutes = require("./routes/payment");
 
-// Use middleware
-app.use(bodyParser.json());
-app.use(cors());
+
 /* app.use(authenticationMiddleware); */
 
 // Use routes
